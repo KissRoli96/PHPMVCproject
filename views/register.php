@@ -1,3 +1,8 @@
+<?php
+  /**  @var $model \ppp\models\User */
+?>
+
+
 <h1>
     Create an acccount
 </h1>
