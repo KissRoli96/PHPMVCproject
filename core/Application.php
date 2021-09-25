@@ -20,6 +20,11 @@ class Application
     public static Application $app;
     public Controller $controller;
 
+    public static function isGuest()
+    {
+        return !self::$app->user;
+    }
+
     /**
      * @return Controller
      */
@@ -74,6 +79,7 @@ class Application
         $this->user = null;
         $this->session->remove('user');
     }
+
 
     public function run()
     {

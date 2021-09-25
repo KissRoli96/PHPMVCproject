@@ -1,8 +1,5 @@
 <?php
 use app\core\Application;
-
-var_dump(Application::$app->user);
-
 ?>
 
 <!doctype html>
@@ -23,6 +20,7 @@ var_dump(Application::$app->user);
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
+            <?php if (Application::isGuest()): ?>
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
                     <a class="nav-link active" href="/login">Login</a>
@@ -31,6 +29,15 @@ var_dump(Application::$app->user);
                     <a class="nav-link " aria-current="page" href="/register">Register</a>
                 </li>
             </ul>
+            <?php else: ?>
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Welcome <?php echo Application::$app->user->getDisplayName() ?>
+                            (logout)
+                        </a>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
@@ -65,6 +72,6 @@ var_dump(Application::$app->user);
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Hello, world!</title>
+    <title>Main Page</title>
 </head>
 </html>
